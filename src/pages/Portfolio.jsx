@@ -32,7 +32,7 @@ export default function Portfolio() {
                 onClick={() => setActive(c)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold border cursor-pointer transition ${
                   active === c
-                    ? "bg-[var(--electric)] text-white border-transparent"
+                    ? "bg-[var(--electric)] text-[var(--on-accent)] border-transparent"
                     : "border-[var(--border-color)] text-[var(--text-secondary)]"
                 }`}
               >
@@ -70,11 +70,11 @@ export default function Portfolio() {
                 </div>
                 <div className="flex gap-2">
                   {p.demoUrl ? (
-                    <a href={p.demoUrl} target="_blank" rel="noreferrer" className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white text-xs font-bold">
+                    <a href={p.demoUrl} target="_blank" rel="noreferrer" className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-[var(--on-primary)] text-xs font-bold">
                       <ExternalLink size={14} /> Voir le site
                     </a>
                   ) : (
-                    <Link to="/contact" className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white text-xs font-bold">
+                    <Link to="/contact" className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-[var(--on-primary)] text-xs font-bold">
                       <ExternalLink size={14} /> Démo sur demande
                     </Link>
                   )}

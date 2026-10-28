@@ -91,7 +91,7 @@ export default function Hero() {
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
               <Link
                 to="/contact"
-                className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[var(--text-primary)] px-8 py-4 font-bold text-[var(--bg-app)] transition-all hover:bg-[var(--electric)] hover:text-white shadow-lg"
+                className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[var(--text-primary)] px-8 py-4 font-bold text-[var(--bg-app)] transition-all hover:bg-[var(--electric)] hover:text-[var(--on-accent)] shadow-lg"
               >
                 Discutons de votre projet
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -135,7 +135,7 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+            {/* <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
               <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-app)]/90 p-5 shadow-xl backdrop-blur">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--electric)]/10 text-xs font-black text-[var(--electric)]">
@@ -155,7 +155,7 @@ export default function Hero() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             <div className="flex gap-3">
               {socials.map((s) => (
@@ -167,8 +167,8 @@ export default function Hero() {
                   aria-label={s.label}
                   className={`flex h-11 w-11 items-center justify-center rounded-full border shadow backdrop-blur transition-colors ${
                     s.active
-                      ? "border-[var(--electric)] bg-[var(--electric)] text-white"
-                      : "border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--electric)] hover:text-white"
+                      ? "border-[var(--electric)] bg-[var(--electric)] text-[var(--on-accent)]"
+                      : "border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--electric)] hover:text-[var(--on-accent)]"
                   }`}
                 >
                   <s.icon size={19} />
@@ -190,7 +190,7 @@ export default function Hero() {
             aria-label={s.label}
             className={`flex h-11 w-11 items-center justify-center rounded-full border shadow ${
               s.active
-                ? "border-[var(--electric)] bg-[var(--electric)] text-white"
+                ? "border-[var(--electric)] bg-[var(--electric)] text-[var(--on-accent)]"
                 : "border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)]"
             }`}
           >

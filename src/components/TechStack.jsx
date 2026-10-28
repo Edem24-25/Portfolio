@@ -129,7 +129,7 @@ export default function TechStack() {
               className="absolute left-1/2 -translate-x-1/2 z-10"
               style={{ top: cy - 42 }}
             >
-              <div className="w-[84px] h-[84px] rounded-full bg-[var(--electric)] text-white flex items-center justify-center shadow-xl shadow-primary-600/25">
+              <div className="w-[84px] h-[84px] rounded-full bg-[var(--electric)] text-[var(--on-accent)] flex items-center justify-center shadow-xl shadow-primary-600/25">
                 <Layers size={34} strokeWidth={2} />
               </div>
             </motion.div>
@@ -157,7 +157,7 @@ export default function TechStack() {
                     <span
                       className={`absolute -top-10 whitespace-nowrap text-[11px] font-bold px-3 py-1.5 rounded-full border shadow-md transition-all duration-200 pointer-events-none ${
                         isActive
-                          ? "opacity-100 translate-y-0 text-white bg-[var(--electric)] border-transparent"
+                          ? "opacity-100 translate-y-0 text-[var(--on-accent)] bg-[var(--electric)] border-transparent"
                           : "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 text-[var(--text-secondary)] bg-[var(--bg-card)] border-[var(--border-color)]"
                       }`}
                     >

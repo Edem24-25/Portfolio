@@ -31,7 +31,7 @@ export default function Services() {
                 onClick={() => setActive(c)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold border cursor-pointer transition ${
                   active === c
-                    ? "bg-[var(--electric)] text-white border-transparent"
+                    ? "bg-[var(--electric)] text-[var(--on-accent)] border-transparent"
                     : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-primary-500/40"
                 }`}
               >

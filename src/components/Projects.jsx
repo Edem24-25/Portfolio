@@ -111,7 +111,7 @@ export default function Projects({ preview = false }) {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[95%] dark:brightness-[85%]"
                   />
-                  <span className="absolute top-4 left-4 bg-primary-500/90 text-white font-body text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                  <span className="absolute top-4 left-4 bg-primary-500/90 text-[var(--on-primary)] font-body text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                     {project.category}
                   </span>
                 </div>
@@ -152,7 +152,7 @@ export default function Projects({ preview = false }) {
                 {/* Bouton Voir Plus */}
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center justify-between px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-white hover:bg-[var(--electric)] hover:border-[var(--electric)] transition-all duration-300 font-body text-xs font-semibold cursor-pointer w-full text-center group/btn"
+                  className="inline-flex items-center justify-between px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--on-accent)] hover:bg-[var(--electric)] hover:border-[var(--electric)] transition-all duration-300 font-body text-xs font-semibold cursor-pointer w-full text-center group/btn"
                 >
                   <span>Savoir plus</span>
                   <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -266,7 +266,7 @@ export default function Projects({ preview = false }) {
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 hover:from-primary-600 hover:to-primary-800 text-white font-body text-sm font-semibold transition-colors duration-200 cursor-pointer text-center"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 hover:from-primary-600 hover:to-primary-800 text-[var(--on-primary)] font-body text-sm font-semibold transition-colors duration-200 cursor-pointer text-center"
                   >
                     <ExternalLink size={16} />
                     Voir le site
@@ -275,7 +275,7 @@ export default function Projects({ preview = false }) {
                   <Link
                     to="/contact"
                     onClick={() => setSelectedProject(null)}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 hover:from-primary-600 hover:to-primary-800 text-white font-body text-sm font-semibold transition-colors duration-200 cursor-pointer text-center"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 hover:from-primary-600 hover:to-primary-800 text-[var(--on-primary)] font-body text-sm font-semibold transition-colors duration-200 cursor-pointer text-center"
                   >
                     <ExternalLink size={16} />
                     Démo sur demande

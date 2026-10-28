@@ -63,7 +63,7 @@ export default function ExperienceEducation() {
             whileTap={{ scale: 0.98 }}
             className={`flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-body text-sm font-semibold transition-all duration-300 cursor-pointer ${
               activeTab === "experience"
-                ? "bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-lg shadow-primary-600/20"
+                ? "bg-gradient-to-r from-primary-500 to-primary-700 text-[var(--on-primary)] shadow-lg shadow-primary-600/20"
                 : "border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-primary-500/30"
             }`}
           >
@@ -80,7 +80,7 @@ export default function ExperienceEducation() {
             whileTap={{ scale: 0.98 }}
             className={`flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-body text-sm font-semibold transition-all duration-300 cursor-pointer ${
               activeTab === "education"
-                ? "bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-lg shadow-primary-600/20"
+                ? "bg-gradient-to-r from-primary-500 to-primary-700 text-[var(--on-primary)] shadow-lg shadow-primary-600/20"
                 : "border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-primary-500/30"
             }`}
           >

@@ -31,16 +31,22 @@
   --border-color: rgba(226, 232, 240, 0.8);
   --border-color-hover: color-mix(in srgb, var(--primary-500) 30%, transparent);
 
-  /* Thème Bleu (Défaut) */
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
+  /* Thème Menthe (Défaut) — aligné sur la couleur d'accent de l'intro (#33FFD6) */
+  --primary-300: #9dfbea;
+  --primary-400: #5ff2dc;
+  --primary-500: #33ffd6;
+  --primary-600: #0a8c76;
+  --primary-700: #077060;
 
   --electric: var(--primary-600);
   --electric-glow: color-mix(in srgb, var(--primary-600) 25%, transparent);
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+
+  /* Encre posée SUR les surfaces d'accent :
+     --on-accent   → fond --electric (en clair = 600 profond → blanc)
+     --on-primary  → fonds primary-500 / dégradés (menthe vive → encre sombre) */
+  --on-accent: #ffffff;
+  --on-primary: #05322b;
 }
 
 [data-theme="dark"] {
@@ -56,6 +62,10 @@
   --electric: var(--primary-500);
   --electric-glow: color-mix(in srgb, var(--primary-500) 30%, transparent);
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+  /* En sombre, --electric = 500 menthe vif → encre sombre dessus */
+  --on-accent: #05322b;
+  --on-primary: #05322b;
 }
 
 html {
@@ -198,4 +208,20 @@ h6 {
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+/* Intro / Preloader — monogramme (partagé par les 5 calques SVG,
+   dont le masque : la géométrie doit être strictement identique) */
+.intro-mono {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 767px) {
+  .intro-mono {
+    font-size: 30px;
+  }
 }

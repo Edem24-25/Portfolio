@@ -11,9 +11,20 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[var(--bg-app)] text-[var(--text-primary)] font-body transition-colors duration-300">
+    <script>
+      // Applique le mode clair/sombre enregistré AVANT le chargement du bundle :
+      // la couleur d'accent (et le fond de l'intro) sont alors corrects dès la
+      // première frame, quel que soit le mode enregistré.
+      try {
+        var savedTheme = localStorage.getItem("portfolio-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (e) {}
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
