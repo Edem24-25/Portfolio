@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@font-face {
+  font-family: "Jubble";
+  src: url("/fonts/jubble.regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-heading: "Jubble", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+}
+
+:root {
+  --bg-app: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.85);
+  --bg-sidebar: rgba(255, 255, 255, 0.75);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: rgba(226, 232, 240, 0.8);
+  --border-color-hover: color-mix(in srgb, var(--primary-500) 30%, transparent);
+
+  /* Thème Bleu (Défaut) */
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+
+  --electric: var(--primary-600);
+  --electric-glow: color-mix(in srgb, var(--primary-600) 25%, transparent);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+
+[data-theme="dark"] {
+  --bg-app: #030712;
+  --bg-card: rgba(17, 24, 39, 0.5);
+  --bg-card-hover: rgba(17, 24, 39, 0.7);
+  --bg-sidebar: rgba(17, 24, 39, 0.75);
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: color-mix(in srgb, var(--primary-500) 40%, transparent);
+  --electric: var(--primary-500);
+  --electric-glow: color-mix(in srgb, var(--primary-500) 30%, transparent);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-weight: 300;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Scrollbar personnalisé */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--electric);
+}
+
+/* Effets Glassmorphism */
+.glass-effect {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-glass);
+  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.glass-effect:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-hover);
+}
+
+.glass-effect-strong {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: var(--bg-card);
+  border: 1px solid color-mix(in srgb, var(--electric) 25%, var(--border-color));
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--electric) 15%, transparent);
+}
+
+/* Texte dégradé */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations clés */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-light {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-light {
+  animation: pulse-light 8s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
