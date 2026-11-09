@@ -15,9 +15,6 @@
   </head>
   <body class="bg-[var(--bg-app)] text-[var(--text-primary)] font-body transition-colors duration-300">
     <script>
-      // Applique le mode clair/sombre enregistré AVANT le chargement du bundle :
-      // la couleur d'accent (et le fond de l'intro) sont alors corrects dès la
-      // première frame, quel que soit le mode enregistré.
       try {
         var savedTheme = localStorage.getItem("portfolio-theme");
         if (savedTheme === "light" || savedTheme === "dark") {

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
-import ThemeSelector, {
+import {
+  applyRandomTheme,
   applyTheme,
-  DEFAULT_COLOR_THEME,
+  getCurrentColorThemeId,
 } from "./components/ThemeSelector";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -15,31 +16,44 @@ import Blog from "./pages/Blog";
 import ContactPage from "./pages/ContactPage";
 import Ressources from "./pages/Ressources";
 
-function ScrollToTop() {
+function RandomThemeWatcher() {
   const { pathname } = useLocation();
+  const isFirstMount = useRef(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Évite de ré-appliquer immédiatement lors du tout premier montage (l'intro a déjà sa couleur)
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+
+    // À chaque navigation / changement de page, applique un nouveau thème de couleur aléatoire
+    applyRandomTheme();
   }, [pathname]);
+
   return null;
 }
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    if (savedTheme) return savedTheme;
+    try {
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "light" || savedTheme === "dark") return savedTheme;
+    } catch (e) {}
     return "dark";
   });
 
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
-    document.body.style.backgroundColor = "";
-    // L'accent dépend du couple couleur × clair/sombre : on le
-    // recalcule à chaque basculement de thème (teinte + encres).
-    applyTheme(
-      localStorage.getItem("portfolio-color") || DEFAULT_COLOR_THEME
-    );
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch (e) {}
+
+    // Réajuste la couleur aléatoire courante pour le mode clair/sombre (encres et contrastes)
+    applyTheme(getCurrentColorThemeId());
   }, [theme]);
 
   const toggleTheme = () => {
@@ -48,7 +62,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <ScrollToTop />
+      <RandomThemeWatcher />
       <div className="relative min-h-screen flex flex-col">
         <Preloader />
         <Navbar theme={theme} toggleTheme={toggleTheme} />
@@ -67,7 +81,6 @@ export default function App() {
         </main>
 
         <Footer />
-        <ThemeSelector />
       </div>
     </BrowserRouter>
   );
