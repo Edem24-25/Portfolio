@@ -36,17 +36,16 @@ export const INTRO_CONFIG = {
   /* --- Variables à personnaliser --- */
   monogram: "WU", // monogramme de la marque
   slogan: "CLARTÉ · DESIGN · RÉSULTATS MESURABLES", // slogan en bas de l'écran d'accueil
-  // Repli seulement : le fond suit automatiquement la couleur active du
-  // sélecteur de palette (--electric), appliquée par getActiveAccent().
-  accent: "#33FFD6",
+  // Repli seulement : le fond suit automatiquement la couleur active (--electric).
+  accent: "#3b82f6",
   monogramWidthDesktop: 150, // largeur du monogramme en phase 3 (px)
   monogramWidthMobile: 96,
   zoomScale: 30, // échelle du zoom traversant (phase 4)
   photoTileWidth: TILE,
   photos: [
-    placeholderPhoto("IMAGE 1", "#33FFD6", "#0d3b33", "#ffffff"),
-    placeholderPhoto("IMAGE 2", "#c88a5a", "#4a2c1a", "#33FFD6"),
-    placeholderPhoto("IMAGE 3", "#1b1b22", "#3a3a4a", "#33FFD6"),
+    placeholderPhoto("IMAGE 1", "#3b82f6", "#0f2b48", "#ffffff"),
+    placeholderPhoto("IMAGE 2", "#c88a5a", "#4a2c1a", "#3b82f6"),
+    placeholderPhoto("IMAGE 3", "#1b1b22", "#3a3a4a", "#3b82f6"),
   ],
   storageKey: "wolodev-intro-seen", // intro jouée une seule fois par session
 

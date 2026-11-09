@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
-import {
-  applyRandomTheme,
-  applyTheme,
-  getCurrentColorThemeId,
-} from "./components/ThemeSelector";
+import { applyTheme } from "./components/ThemeSelector";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
@@ -16,23 +12,11 @@ import Blog from "./pages/Blog";
 import ContactPage from "./pages/ContactPage";
 import Ressources from "./pages/Ressources";
 
-function RandomThemeWatcher() {
+function ScrollToTop() {
   const { pathname } = useLocation();
-  const isFirstMount = useRef(true);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    // Évite de ré-appliquer immédiatement lors du tout premier montage (l'intro a déjà sa couleur)
-    if (isFirstMount.current) {
-      isFirstMount.current = false;
-      return;
-    }
-
-    // À chaque navigation / changement de page, applique un nouveau thème de couleur aléatoire
-    applyRandomTheme();
   }, [pathname]);
-
   return null;
 }
 
@@ -52,8 +36,8 @@ export default function App() {
       localStorage.setItem("portfolio-theme", theme);
     } catch (e) {}
 
-    // Réajuste la couleur aléatoire courante pour le mode clair/sombre (encres et contrastes)
-    applyTheme(getCurrentColorThemeId());
+    // Réajuste les variables de la couleur bleue selon le mode clair/sombre
+    applyTheme();
   }, [theme]);
 
   const toggleTheme = () => {
@@ -62,7 +46,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <RandomThemeWatcher />
+      <ScrollToTop />
       <div className="relative min-h-screen flex flex-col">
         <Preloader />
         <Navbar theme={theme} toggleTheme={toggleTheme} />
