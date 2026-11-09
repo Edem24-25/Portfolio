@@ -105,8 +105,8 @@ export default function Footer() {
             © {new Date().getFullYear()} <span className="font-bold text-[var(--electric)]">WOLODev</span> — Tous droits réservés.
           </span>
           <div className="flex items-center gap-8">
-            <span className="hover:text-[var(--electric)] transition-colors cursor-pointer">Mentions légales</span>
-            <span className="hover:text-[var(--electric)] transition-colors cursor-pointer">Confidentialité</span>
+            <Link to="/mentions-legales" className="hover:text-[var(--electric)] transition-colors cursor-pointer">Mentions légales</Link>
+            <Link to="/confidentialite" className="hover:text-[var(--electric)] transition-colors cursor-pointer">Confidentialité</Link>
           </div>
         </div>
       </div>
